@@ -80,6 +80,7 @@ class SearchWidget extends StatelessWidget implements PreferredSizeWidget {
             style: Theme.of(context).textTheme.headline6.apply(
               color: Colors.white
             ),
+            cursorColor: Colors.white,
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: hintText,
