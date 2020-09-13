@@ -22,23 +22,15 @@ class SearchWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     // to handle notches properly
-    return SafeArea(
-      top: true,
-      child: GestureDetector(
-        child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  //_buildBackButton(),
-                  _buildTextField(),
-                  _buildClearButton(),
-                ],
-              ),
-            ],
-          ),
+    return GestureDetector(
+      child: Container(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            //_buildBackButton(),
+            _buildTextField(),
+            _buildClearButton(),
+          ],
         ),
       ),
     );
