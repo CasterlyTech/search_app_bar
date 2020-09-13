@@ -103,7 +103,6 @@ class _SearchAppBarState<T> extends State<SearchAppBar<T>>
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
     return StreamBuilder<bool>(
         stream: bloc.isInSearchMode,
         builder: (context, snapshot) {
@@ -127,6 +126,10 @@ class _SearchAppBarState<T> extends State<SearchAppBar<T>>
       elevation: _elevation,
       centerTitle: widget.centerTitle,
       actions: increasedActions,
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back, color: Colors.white),
+        onPressed: () => Navigator.of(context).pop(),
+      ),
     );
   }
 
