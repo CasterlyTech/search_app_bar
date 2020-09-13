@@ -89,6 +89,7 @@ class _SearchAppBarState<T> extends State<SearchAppBar<T>>
     bloc.onClearSearchQuery();
     _elevation = 4.0;
     _controller.reverse();
+    Navigator.of(context).pop();
   }
 
   Future<bool> _onWillPop(bool isInSearchMode) async {
@@ -112,7 +113,7 @@ class _SearchAppBarState<T> extends State<SearchAppBar<T>>
             child: Stack(
               children: [
                 _buildAppBar(context),
-                _buildAnimation(screenWidth),
+                //_buildAnimation(screenWidth),
                 _buildSearchWidget(isInSearchMode, context),
               ],
             ),
@@ -121,14 +122,14 @@ class _SearchAppBarState<T> extends State<SearchAppBar<T>>
   }
 
   AppBar _buildAppBar(BuildContext context) {
-    final searchButton = _buildSearchButton(context);
+    //final searchButton = _buildSearchButton(context);
     final increasedActions = List<Widget>();
     increasedActions.addAll(widget.actions);
-    increasedActions.insert(widget._searchButtonPosition, searchButton);
+    //increasedActions.insert(widget._searchButtonPosition, searchButton);
     return AppBar(
       backgroundColor: widget.backgroundColor ?? Theme.of(context).primaryColor,
       iconTheme: widget.iconTheme ?? Theme.of(context).iconTheme,
-      title: widget.title,
+      title: null,//widget.title,
       elevation: _elevation,
       centerTitle: widget.centerTitle,
       actions: increasedActions,
@@ -167,14 +168,12 @@ class _SearchAppBarState<T> extends State<SearchAppBar<T>>
   }
 
   Widget _buildSearchWidget(bool isInSearchMode, BuildContext context) {
-    return isInSearchMode
-        ? SearchWidget(
-            bloc: bloc,
-            color: widget.searchElementsColor ?? Theme.of(context).primaryColor,
-            onCancelSearch: cancelSearch,
-            textCapitalization: widget.capitalization,
-            hintText: widget.hintText,
-          )
-        : Container();
+    return SearchWidget(
+      bloc: bloc,
+      color: widget.searchElementsColor ?? Theme.of(context).primaryColor,
+      onCancelSearch: cancelSearch,
+      textCapitalization: widget.capitalization,
+      hintText: widget.hintText,
+    );
   }
 }
