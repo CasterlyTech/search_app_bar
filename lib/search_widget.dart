@@ -82,7 +82,6 @@ class SearchWidget extends StatelessWidget implements PreferredSizeWidget {
               hintText: hintText,
             ),
             textCapitalization: textCapitalization ?? TextCapitalization.none,
-            style: TextStyle(fontSize: 18.0),
             onChanged: bloc.onSearchQueryChanged,
           );
         },
