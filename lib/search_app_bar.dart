@@ -110,13 +110,7 @@ class _SearchAppBarState<T> extends State<SearchAppBar<T>>
           final isInSearchMode = snapshot.data ?? false;
           return WillPopScope(
             onWillPop: () => _onWillPop(isInSearchMode),
-            child: Stack(
-              children: [
-                _buildAppBar(context),
-                //_buildAnimation(screenWidth),
-                _buildSearchWidget(isInSearchMode, context),
-              ],
-            ),
+            child: _buildAppBar(context),
           );
         });
   }
@@ -129,7 +123,7 @@ class _SearchAppBarState<T> extends State<SearchAppBar<T>>
     return AppBar(
       backgroundColor: widget.backgroundColor ?? Theme.of(context).primaryColor,
       iconTheme: widget.iconTheme ?? Theme.of(context).iconTheme,
-      title: null,//widget.title,
+      title: _buildSearchWidget(false, context),
       elevation: _elevation,
       centerTitle: widget.centerTitle,
       actions: increasedActions,

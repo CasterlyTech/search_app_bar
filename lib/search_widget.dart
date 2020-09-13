@@ -32,7 +32,7 @@ class SearchWidget extends StatelessWidget implements PreferredSizeWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  _buildBackButton(),
+                  //_buildBackButton(),
                   _buildTextField(),
                   _buildClearButton(),
                 ],
