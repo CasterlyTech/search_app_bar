@@ -83,6 +83,9 @@ class SearchWidget extends StatelessWidget implements PreferredSizeWidget {
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: hintText,
+              hintStyle: Theme.of(context).textTheme.headline6.apply(
+                color: Color(0xFFB8CEE3)
+              ),
             ),
             textCapitalization: textCapitalization ?? TextCapitalization.none,
             onChanged: bloc.onSearchQueryChanged,
