@@ -78,7 +78,7 @@ class SearchWidget extends StatelessWidget implements PreferredSizeWidget {
             controller: controller,
             autofocus: true,
             style: Theme.of(context).textTheme.headline6.apply(
-              color: Theme.of(context).colorScheme.onSurface
+              color: Colors.white
             ),
             decoration: InputDecoration(
               border: InputBorder.none,
