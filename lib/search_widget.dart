@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:search_app_bar/search_bloc.dart';
 
 class SearchWidget extends StatelessWidget implements PreferredSizeWidget {
@@ -82,6 +83,11 @@ class SearchWidget extends StatelessWidget implements PreferredSizeWidget {
             ),
             textCapitalization: textCapitalization ?? TextCapitalization.none,
             onChanged: bloc.onSearchQueryChanged,
+            inputFormatters: [
+              TextInputFormatter.withFunction((oldValue, newValue) {
+                return newValue.copyWith(text: newValue.text?.toUpperCase());
+              })
+            ],
           );
         },
       ),
