@@ -44,7 +44,7 @@ class SearchBloc<T> extends BlocBase {
         _debounce.cancel();
       }
       _debounce = Timer(const Duration(milliseconds: 500), () async {
-        if (query.length >= 3) {
+        if (query.length >= 1) {
           await searcher.search(query);
         } 
       });
