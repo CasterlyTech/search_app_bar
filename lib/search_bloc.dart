@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
@@ -12,6 +14,7 @@ class SearchBloc<T> extends BlocBase {
   final _isInSearchMode = BehaviorSubject<bool>();
   final _searchQuery = BehaviorSubject<String>();
 
+  Timer _debounce;
   ///
   /// Inputs
   ///
@@ -37,7 +40,14 @@ class SearchBloc<T> extends BlocBase {
   }) {
     _configureFilter();
     searchQuery.listen((query) async {
-      List<T> filtered = await searcher.search(query);
+      if (_debounce?.isActive ?? false) {
+        _debounce.cancel();
+      }
+      _debounce = Timer(const Duration(milliseconds: 500), () async {
+        if (query.length >= 3) {
+          await searcher.search(query);
+        } 
+      });
     });
   }
 
