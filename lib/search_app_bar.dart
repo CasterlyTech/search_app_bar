@@ -129,7 +129,7 @@ class _SearchAppBarState<T> extends State<SearchAppBar<T>>
       centerTitle: widget.centerTitle,
       actions: increasedActions,
       leading: IconButton(
-        icon: Icon(Icons.arrow_back, color: Colors.white),
+        icon: Icon(Icons.arrow_back),
         onPressed: () => Navigator.of(context).pop(),
       ),
     );
