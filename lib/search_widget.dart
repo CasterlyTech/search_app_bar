@@ -8,6 +8,7 @@ class SearchWidget extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback onCancelSearch;
   final TextCapitalization textCapitalization;
   final String hintText;
+  final TextStyle hintStyle;
 
   SearchWidget({
     @required this.bloc,
@@ -15,6 +16,7 @@ class SearchWidget extends StatelessWidget implements PreferredSizeWidget {
     this.color,
     this.textCapitalization,
     this.hintText,
+    this.hintStyle
   });
 
   @override
@@ -77,9 +79,7 @@ class SearchWidget extends StatelessWidget implements PreferredSizeWidget {
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: hintText,
-              hintStyle: Theme.of(context).textTheme.headline6.apply(
-                color: Color(0xFFB8CEE3)
-              ),
+              hintStyle: hintStyle,
             ),
             textCapitalization: textCapitalization ?? TextCapitalization.none,
             onChanged: bloc.onSearchQueryChanged,

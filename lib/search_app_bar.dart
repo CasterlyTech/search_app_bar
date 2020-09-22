@@ -22,6 +22,7 @@ class SearchAppBar<T> extends StatefulWidget implements PreferredSizeWidget {
   final TextCapitalization capitalization;
   final List<Widget> actions;
   final int _searchButtonPosition;
+  final TextStyle hintStyle;
 
   SearchAppBar({
     @required this.searcher,
@@ -33,6 +34,7 @@ class SearchAppBar<T> extends StatefulWidget implements PreferredSizeWidget {
     this.searchBackgroundColor,
     this.searchElementsColor,
     this.hintText,
+    this.hintStyle,
     this.flattenOnSearch = false,
     this.capitalization = TextCapitalization.none,
     this.actions = const <Widget>[],
@@ -171,6 +173,7 @@ class _SearchAppBarState<T> extends State<SearchAppBar<T>>
       onCancelSearch: cancelSearch,
       textCapitalization: widget.capitalization,
       hintText: widget.hintText,
+      hintStyle: widget.hintStyle,
     );
   }
 }
