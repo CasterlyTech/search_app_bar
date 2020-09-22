@@ -72,10 +72,10 @@ class SearchWidget extends StatelessWidget implements PreferredSizeWidget {
           return TextField(
             controller: controller,
             autofocus: true,
-            style: Theme.of(context).textTheme.headline6.apply(
+            /* style: Theme.of(context).textTheme.headline6.apply(
               color: Colors.white
-            ),
-            cursorColor: Colors.white,
+            ), */
+            cursorColor: Theme.of(context).primaryColor,
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: hintText,
